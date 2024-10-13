@@ -1,0 +1,3 @@
+ruamel.yaml
+datamodel-code-generator
+pydantic
