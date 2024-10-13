@@ -30,5 +30,10 @@ generate(
     output=output,
     output_model_type=DataModelType.PydanticV2BaseModel,
     target_python_version=PythonVersion.PY_310,
-    field_constraints=True,   
+    field_constraints=True,
+    reuse_model=True,
+    treat_dots_as_module=True,
+    use_subclass_enum=True,
+    enum_field_as_literal="one",
+    use_field_description=True
 )
