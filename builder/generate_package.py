@@ -1,5 +1,5 @@
 from pathlib import Path
-from datamodel_code_generator import InputFileType, generate
+from datamodel_code_generator import InputFileType, generate, OpenAPIScope
 from datamodel_code_generator import DataModelType, PythonVersion
 import json
 import warnings
@@ -29,11 +29,13 @@ generate(
     input_file_type=InputFileType.OpenAPI,
     output=output,
     output_model_type=DataModelType.PydanticV2BaseModel,
-    target_python_version=PythonVersion.PY_310,
+    target_python_version=PythonVersion.PY_312,
     field_constraints=True,
     reuse_model=True,
-    treat_dots_as_module=True,
     use_subclass_enum=True,
-    enum_field_as_literal="one",
-    use_field_description=True
+    enum_field_as_literal="all",
+    use_field_description=True,
+    use_default_kwarg=True,
+    use_schema_description=True,
+    openapi_scopes=[OpenAPIScope.Parameters, OpenAPIScope.Paths, OpenAPIScope.Schemas, OpenAPIScope.Tags]
 )
