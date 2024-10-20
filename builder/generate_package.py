@@ -33,11 +33,12 @@ generate(
     apply_default_values_for_required_fields=False,
     use_field_description=True,
     use_schema_description=True,
+    use_subclass_enum=True,
+    enum_field_as_literal="all",
     # reuse_model=True,
-    # use_subclass_enum=True,
     # use_default_kwarg=True,
     # field_constraints=True,
-    # enum_field_as_literal="all",
     # openapi_scopes=[OpenAPIScope.Parameters, OpenAPIScope.Paths, OpenAPIScope.Schemas, OpenAPIScope.Tags],
     strict_nullable=True # https://github.com/koxudaxi/datamodel-code-generator/issues/327
 )
+
