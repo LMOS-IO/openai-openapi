@@ -37,5 +37,6 @@ generate(
     use_field_description=True,
     use_default_kwarg=True,
     use_schema_description=True,
-    openapi_scopes=[OpenAPIScope.Parameters, OpenAPIScope.Paths, OpenAPIScope.Schemas, OpenAPIScope.Tags]
+    openapi_scopes=[OpenAPIScope.Parameters, OpenAPIScope.Paths, OpenAPIScope.Schemas, OpenAPIScope.Tags],
+    strict_nullable=True # https://github.com/koxudaxi/datamodel-code-generator/issues/327
 )
