@@ -8,6 +8,7 @@ import warnings
 
 from ruamel.yaml import YAML
 from ruamel.yaml.error import ReusedAnchorWarning
+from config import Settings
 
 # fix errors from ruamel.yaml
 warnings.simplefilter("ignore", ReusedAnchorWarning)
@@ -31,7 +32,7 @@ def gen(path):
         input_=openapi_json,
         input_file_type=InputFileType.OpenAPI,
         output=path,
-        output_model_type=DataModelType.PydanticV2BaseModel,
+        output_model_type=Settings.ModelType,
         target_python_version=PythonVersion.PY_312,
         apply_default_values_for_required_fields=False,
         use_field_description=True,
@@ -57,5 +58,5 @@ replace = r'\1None'
 model = re.sub(pattern, replace, model)
 
 output = Path(release_pkg_dir / '__init__.py')
-with open(output, "r+") as file:
+with open(output, "w+") as file:
     file.write(model)
