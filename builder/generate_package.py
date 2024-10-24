@@ -65,3 +65,7 @@ with open(output, "w+") as file:
 TomlPath = Path(release_pkg_dir / '../pyproject.toml')
 with open(TomlPath, "w+") as pyproject :
     pyproject.write(generate_toml())
+
+pytyped = Path(release_pkg_dir / 'py.typed')
+with open(pytyped, 'w+') :
+    pass
