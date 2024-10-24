@@ -1,3 +1,5 @@
+
+TOML = '''
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -6,7 +8,7 @@ build-backend = "setuptools.build_meta"
 name = "openai_types"
 version = "0.1.0"
 description = "A Python package for types related to OpenAI"
-license = { text = "MIT" }
+license = { text = "apache2" }
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
@@ -23,3 +25,7 @@ include = ["openai_types"]
 
 [tool.setuptools]
 package-data = { "openai_types" = ["py.typed"] }
+'''.strip()
+
+def generate_toml():
+    return TOML

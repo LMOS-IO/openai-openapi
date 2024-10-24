@@ -9,6 +9,7 @@ import warnings
 from ruamel.yaml import YAML
 from ruamel.yaml.error import ReusedAnchorWarning
 from config import Settings
+from toml_generator import generate_toml
 
 # fix errors from ruamel.yaml
 warnings.simplefilter("ignore", ReusedAnchorWarning)
@@ -60,3 +61,7 @@ model = re.sub(pattern, replace, model)
 output = Path(release_pkg_dir / '__init__.py')
 with open(output, "w+") as file:
     file.write(model)
+
+TomlPath = Path(release_pkg_dir / '../pyproject.toml')
+with open(TomlPath, "w+") as pyproject :
+    pyproject.write(generate_toml())
