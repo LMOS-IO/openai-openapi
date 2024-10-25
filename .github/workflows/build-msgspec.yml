@@ -32,7 +32,7 @@ jobs:
       - name: Create or switch to generated-package branch
         run: |
           git checkout --orphan pydantic-gen
-          git rm -rf
+          git rm -rf .
 
       # Step 5: Run the Python script to generate the package
       - name: Generate Python Package
