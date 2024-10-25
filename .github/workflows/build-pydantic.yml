@@ -28,16 +28,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r builder/requirements.txt
 
-      # Step 4: Create or switch to the 'generated-package' branch
-      - name: Create or switch to generated-package branch
-        run: |
-          git checkout --orphan pydantic-gen
-          git rm -rf
-
-      # Step 5: Run the Python script to generate the package
+      # Step 4: Run the Python script to generate the package
       - name: Generate Python Package
         run: |
           python builder/generate_package.py
+
+      # Step 5: Create or switch to the 'generated-package' branch
+      - name: Create or switch to generated-package branch
+        run: |
+          git checkout --orphan pydantic-gen
 
       # Step 6: Commit the generated files
       - name: Commit files
