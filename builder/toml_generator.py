@@ -1,4 +1,4 @@
-
+# TODO: fix deps to match the type defined by config
 TOML = '''
 [build-system]
 requires = ["setuptools", "wheel"]

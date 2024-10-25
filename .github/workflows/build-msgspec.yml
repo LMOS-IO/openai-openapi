@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -19,7 +20,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x' # Specify the Python version you need
+          python-version: '3.x'
 
       # Step 3: Install dependencies (if your script needs any)
       - name: Install dependencies
@@ -30,12 +31,12 @@ jobs:
       # Step 4: Run the Python script to generate the package
       - name: Generate Python Package
         run: |
-          python builder/generate_package.py # Replace with the actual name of your script
+          python builder/generate_package.py --modeltype MsgspecStruct
 
       # Step 5: Create or switch to the 'generated-package' branch
       - name: Create or switch to generated-package branch
         run: |
-          git checkout -B generated-package
+          git checkout --orphan msgspec-gen
 
       # Step 6: Commit the generated files
       - name: Commit files
@@ -48,6 +49,6 @@ jobs:
       # Step 7: Push to the 'generated-package' branch
       - name: Push to generated-package branch
         run: |
-          git push --force origin generated-package
+          git push --force origin msgspec-gen
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
